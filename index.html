@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="branding">
+                <h1>HealthConnect</h1>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Find Providers by Specialty</a></li>
+                    <li><a href="#">Find Providers by Procedure</a></li>
+                    <li><a href="#">Find Providers by Condition</a></li>
+                    <li><a href="#">Find All Providers</a></li>
+                    <li><a href="#">List Your Practice</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <h2>Find Doctors and Dentists Near You</h2>
+            <p>8 million+ Physician Ratings & Reviews</p>
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="search-query" placeholder="Search doctors, conditions, or procedures">
+                    <input type="text" id="location" placeholder="Enter your location">
+                    <button onclick="searchDoctors()">Search</button>
+                </div>
+                <div class="additional-filters">
+                    <select id="specialty">
+                        <option value="">Select Specialty</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="neurology">Neurology</option>
+                        <!-- Add more specialties as needed -->
+                    </select>
+                    <select id="rating">
+                        <option value="">Select Rating</option>
+                        <option value="4">4+ stars</option>
+                        <option value="3">3+ stars</option>
+                        <option value="2">2+ stars</option>
+                        <option value="1">1+ star</option>
+                    </select>
+                    <select id="distance">
+                        <option value="">Select Distance</option>
+                        <option value="5">Within 5 miles</option>
+                        <option value="10">Within 10 miles</option>
+                        <option value="20">Within 20 miles</option>
+                    </select>
+                </div>
+                <div class="results" id="results">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
