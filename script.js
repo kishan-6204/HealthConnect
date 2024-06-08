@@ -1,92 +1,72 @@
-const doctors = [
-    { name: 'Dr. Smith', specialty: 'Cardiologist', location: 'Hyderabad', rating: 5 },
-    { name: 'Dr. Johnson', specialty: 'Dermatologist', location: 'Hyderabad', rating: 4 },
-    { name: 'Dr. Patel', specialty: 'General Physician', location: 'Bangalore', rating: 3 },
-    { name: 'Dr. Gupta', specialty: 'Pediatrician', location: 'Mumbai', rating: 5 },
-    // Add more doctors as needed
-];
-
-function filterBySpecialty() {
-    const specialty = document.getElementById('specialty').value.toLowerCase();
-    const filteredDoctors = doctors.filter(doctor => doctor.specialty.toLowerCase().includes(specialty));
-    displayResults(filteredDoctors);
-}
-
-function filterByProcedure() {
-    // Implement procedure filter if data available, similar to specialty
-    alert('Filtering by Procedure');
-}
-
-function filterByCondition() {
-    // Implement condition filter if data available, similar to specialty
-    alert('Filtering by Condition');
-}
-
-function findAllProviders() {
-    displayResults(doctors);
-}
-
-function listYourPractice() {
-    alert('Listing Your Practice');
-}
-
-function search() {
-    const query = document.getElementById('searchQuery').value.toLowerCase();
-    const location = document.getElementById('location').value.toLowerCase();
-    const specialty = document.getElementById('specialty').value.toLowerCase();
+function searchDoctors() {
+    // Placeholder for search function
+    const query = document.getElementById('search-query').value;
+    const location = document.getElementById('location').value;
+    const specialty = document.getElementById('specialty').value;
     const rating = document.getElementById('rating').value;
     const distance = document.getElementById('distance').value;
 
-    let filteredDoctors = doctors;
+    console.log("Search Query:", query);
+    console.log("Location:", location);
+    console.log("Specialty:", specialty);
+    console.log("Rating:", rating);
+    console.log("Distance:", distance);
 
-    if (query) {
-        filteredDoctors = filteredDoctors.filter(doctor =>
-            doctor.name.toLowerCase().includes(query) ||
-            doctor.specialty.toLowerCase().includes(query)
-        );
+    // Simulating a search result
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = `
+        <div class="result-item">Dr. Prakash - Cardiologist - 5 km away - 4.5 stars</div>
+        <div class="result-item">Dr. Surbhi chouhan - Dermatologist - 10 km away - 4 stars</div>
+        <!-- Add more simulated results as needed -->
+    `;
+    function showLoginForm() {
+        document.getElementById('login-form').style.display = 'block';
+        document.getElementById('register-form').style.display = 'none';
     }
-
-    if (location) {
-        filteredDoctors = filteredDoctors.filter(doctor =>
-            doctor.location.toLowerCase().includes(location)
-        );
+    
+    function showRegisterForm() {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('register-form').style.display = 'block';
     }
-
-    if (specialty) {
-        filteredDoctors = filteredDoctors.filter(doctor =>
-            doctor.specialty.toLowerCase().includes(specialty)
-        );
+    
+    function login() {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+    
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        }).then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  alert('Login successful');
+              } else {
+                  alert('Login failed');
+              }
+          });
     }
-
-    if (rating) {
-        filteredDoctors = filteredDoctors.filter(doctor =>
-            doctor.rating == rating
-        );
+    
+    function register() {
+        const email = document.getElementById('register-email').value;
+        const password = document.getElementById('register-password').value;
+    
+        fetch('/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        }).then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  alert('Registration successful');
+              } else {
+                  alert('Registration failed');
+              }
+          });
     }
-
-    // Distance filtering logic can be implemented based on user's location and doctor's location
-
-    displayResults(filteredDoctors);
-}
-
-function displayResults(doctors) {
-    const resultsSection = document.getElementById('results');
-    resultsSection.innerHTML = '';
-
-    if (doctors.length === 0) {
-        resultsSection.innerHTML = '<p>No doctors found</p>';
-        return;
-    }
-
-    doctors.forEach(doctor => {
-        const doctorElement = document.createElement('div');
-        doctorElement.classList.add('doctor');
-        doctorElement.innerHTML = `
-            <h3>${doctor.name}</h3>
-            <p>Specialty: ${doctor.specialty}</p>
-            <p>Location: ${doctor.location}</p>
-            <p>Rating: ${doctor.rating} Stars</p>
-        `;
-        resultsSection.appendChild(doctorElement);
-    });
+    
 }
