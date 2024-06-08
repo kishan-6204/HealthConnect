@@ -1,54 +1,120 @@
-<div class="login-wrap">
-    <div class="login-html">
-      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-      <div class="login-form">
-        <div class="sign-in-htm">
-          <div class="group">
-            <label for="user" class="label">Username</label>
-            <input id="user" type="text" class="input">
-          </div>
-          <div class="group">
-            <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
-          </div>
-          <div class="group">
-            <input id="check" type="checkbox" class="check" checked>
-            <label for="check"><span class="icon"></span> Keep me Signed in</label>
-          </div>
-          <div class="group">
-            <input type="submit" class="button" value="Sign In">
-          </div>
-          <div class="hr"></div>
-          <div class="foot-lnk">
-            <a href="#forgot">Forgot Password?</a>
-          </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="branding">
+                <h1>HealthConnect</h1>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">Find Providers by Specialty</a>
+                        <ul class="dropdown">
+                            <li><a href="#" onclick="searchDoctors('Internal Medicine', '', '', '', '', '')">Internal Medicine</a></li>
+                            <li><a href="#" onclick="searchDoctors('Cardiovascular Disease', '', '', '', '', '')">Cardiovascular Disease</a></li>
+                            <li><a href="#" onclick="searchDoctors('Family Medicine', '', '', '', '', '')">Family Medicine</a></li>
+                            <li><a href="#" onclick="searchDoctors('Neurology', '', '', '', '', '')">Neurology</a></li>
+                            <li><a href="#" onclick="searchDoctors('Gastroenterology', '', '', '', '', '')">Gastroenterology</a></li>
+                            <li><a href="#">View All</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Find Providers by Procedure</a>
+                        <ul class="dropdown">
+                            <li><a href="#" onclick="searchDoctors('', 'TMS Transcranial Magnetic Stimulation', '', '', '', '')">TMS Transcranial Magnetic Stimulation</a></li>
+                            <li><a href="#" onclick="searchDoctors('', 'Ketamine Infusion Therapy', '', '', '', '')">Ketamine Infusion Therapy</a></li>
+                            <li><a href="#" onclick="searchDoctors('', 'Colonoscopy', '', '', '', '')">Colonoscopy</a></li>
+                            <li><a href="#" onclick="searchDoctors('', 'ADHD Testing', '', '', '', '')">ADHD Testing</a></li>
+                            <li><a href="#" onclick="searchDoctors('', 'Hernia Repair', '', '', '', '')">Hernia Repair</a></li>
+                            <li><a href="#">View All</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Find Providers by Condition</a>
+                        <ul class="dropdown">
+                            <li><a href="#" onclick="searchDoctors('', '', 'HIV Infection', '', '', '')">HIV Infection</a></li>
+                            <li><a href="#" onclick="searchDoctors('', '', 'Chronic Fatigue Syndrome', '', '', '')">Chronic Fatigue Syndrome</a></li>
+                            <li><a href="#" onclick="searchDoctors('', '', 'Osteoporosis', '', '', '')">Osteoporosis</a></li>
+                            <li><a href="#" onclick="searchDoctors('', '', 'Autism', '', '', '')">Autism</a></li>
+                            <li><a href="#" onclick="searchDoctors('', '', 'Lymphedema', '', '', '')">Lymphedema</a></li>
+                            <li><a href="#">View All</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Find All Providers</a>
+                        <ul class="dropdown">
+                            <li><a href="#" onclick="searchDoctors('', '', '', 'Location', '', '')">By Location</a></li>
+                            <li><a href="#" onclick="searchDoctors('', '', '', 'Newly Added Providers', '', '')">Newly Added Providers</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" onclick="listYourPractice()">List Your Practice</a></li>
+                </ul>
+            </nav>
+            <div class="auth-box">
+                <button onclick="showLoginForm()">Login</button>
+                <button onclick="showRegisterForm()">Register</button>
+            </div>
         </div>
-        <div class="sign-up-htm">
-          <div class="group">
-            <label for="user" class="label">Username</label>
-            <input id="user" type="text" class="input">
-          </div>
-          <div class="group">
-            <label for="pass" class="label">Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
-          </div>
-          <div class="group">
-            <label for="pass" class="label">Repeat Password</label>
-            <input id="pass" type="password" class="input" data-type="password">
-          </div>
-          <div class="group">
-            <label for="pass" class="label">Email Address</label>
-            <input id="pass" type="text" class="input">
-          </div>
-          <div class="group">
-            <input type="submit" class="button" value="Sign Up">
-          </div>
-          <div class="hr"></div>
-          <div class="foot-lnk">
-            <label for="tab-1">Already Member?</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <h2>Find Doctors and Dentists Near You</h2>
+            <p>8 million+ Physician Ratings & Reviews</p>
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="search-query" placeholder="Search doctors, conditions, or procedures">
+                    <input type="text" id="location" placeholder="Enter your location">
+                    <button onclick="searchDoctors()">Search</button>
+                </div>
+                <div class="additional-filters">
+                    <select id="specialty">
+                        <option value="">Select Specialty</option>
+                        <option value="cardiology">Cardiology</option>
+                        <option value="dermatology">Dermatology</option>
+                        <option value="neurology">Neurology</option>
+                        <!-- Add more specialties as needed -->
+                    </select>
+                    <select id="rating">
+                        <option value="">Select Rating</option>
+                        <option value="4">4+ stars</option>
+                        <option value="3">3+ stars</option>
+                        <option value="2">2+ stars</option>
+                        <option value="1">1+ star</option>
+                    </select>
+                    <select id="distance">
+                        <option value="">Select Distance</option>
+                        <option value="5">Within 5 miles</option>
+                        <option value="10">Within 10 miles</option>
+                        <option value="20">Within 20 miles</option>
+                    </select>
+                </div>
+                <div class="results" id="results">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form" style="display:none;">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button onclick="login()">Login</button>
+            </div>
+    
+            <!-- Registration Form -->
+            <div id="register-form" class="auth-form" style="display:none;">
+                <h2>Register</h2>
+                <input type="email" id="register-email" placeholder="Email" required>
+                <input type="password" id="register-password" placeholder="Password" required>
+                <button onclick="register()">Register</button>
+            </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
