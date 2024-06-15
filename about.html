@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/images/aboutus.jpeg') no-repeat left center fixed; /* Positioning the background image */
+            background-size: cover;
+            overflow-x: hidden;
+        }
+        .content {
+            max-width: 800px;
+            margin: 5% auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+        h1 {
+            color: #800080; /* Purple text */
+        }
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>About Us</h1>
+        <p>Welcome to our website! We are dedicated to improving healthcare accessibility by helping you find the best doctors for your needs.</p>
+        <p>Our platform allows you to search for doctors by specialty, procedure, and condition, making it easier to find the right healthcare provider. You can also list your practice and connect with patients in need of your services.</p>
+        <p>Thank you for choosing our website. We are committed to providing you with the best possible service and helping you achieve your healthcare goals.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.content').classList.add('fade-in');
+        });
+    </script>
+</body>
+</html>

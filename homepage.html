@@ -13,52 +13,33 @@
                 <h1>HealthConnect</h1>
                 <h5>Improving healthcare accessibility</h5>
             </div>
+            <div class="navbar">
             <nav class="navigation">
                 <ul>
+                    <a href="about.html">About Us</a>
                     <li>
-                        <a href="#">Find Providers by Specialty</a>
+                        <a href="#">Find by Specialty</a>
                         <ul class="dropdown">
-                            <li><a href="#" onclick="searchDoctors('Internal Medicine', '', '', '', '', '')">Internal Medicine</a></li>
-                            <li><a href="#" onclick="searchDoctors('Cardiovascular Disease', '', '', '', '', '')">Cardiovascular Disease</a></li>
-                            <li><a href="#" onclick="searchDoctors('Family Medicine', '', '', '', '', '')">Family Medicine</a></li>
-                            <li><a href="#" onclick="searchDoctors('Neurology', '', '', '', '', '')">Neurology</a></li>
-                            <li><a href="#" onclick="searchDoctors('Gastroenterology', '', '', '', '', '')">Gastroenterology</a></li>
-                            <li><a href="#">View All</a></li>
+                            <li><a href="cardiology.html">Cardiology</a></li>
+                            <li><a href="generalsurgeon.html">General Surgeon</a></li>
+                            <li><a href="dentists.html">Dentists</a></li>
+                            <li><a href="neurology.html">Neurology</a></li>
+                            <li><a href="orthopedist.html">Orthopedist</a></li>
+                           
                         </ul>
                     </li>
-                    <li>
-                        <a href="#">Find Providers by Procedure</a>
-                        <ul class="dropdown">
-                            <li><a href="#" onclick="searchDoctors('', 'TMS Transcranial Magnetic Stimulation', '', '', '', '')">TMS Transcranial Magnetic Stimulation</a></li>
-                            <li><a href="#" onclick="searchDoctors('', 'Ketamine Infusion Therapy', '', '', '', '')">Ketamine Infusion Therapy</a></li>
-                            <li><a href="#" onclick="searchDoctors('', 'Colonoscopy', '', '', '', '')">Colonoscopy</a></li>
-                            <li><a href="#" onclick="searchDoctors('', 'ADHD Testing', '', '', '', '')">ADHD Testing</a></li>
-                            <li><a href="#" onclick="searchDoctors('', 'Hernia Repair', '', '', '', '')">Hernia Repair</a></li>
-                            <li><a href="#">View All</a></li>
-                        </ul>
                     </li>
-                    <li>
-                        <a href="#">Find Providers by Condition</a>
-                        <ul class="dropdown">
-                            <li><a href="#" onclick="searchDoctors('', '', 'HIV Infection', '', '', '')">HIV Infection</a></li>
-                            <li><a href="#" onclick="searchDoctors('', '', 'Chronic Fatigue Syndrome', '', '', '')">Chronic Fatigue Syndrome</a></li>
-                            <li><a href="#" onclick="searchDoctors('', '', 'Osteoporosis', '', '', '')">Osteoporosis</a></li>
-                            <li><a href="#" onclick="searchDoctors('', '', 'Autism', '', '', '')">Autism</a></li>
-                            <li><a href="#" onclick="searchDoctors('', '', 'Lymphedema', '', '', '')">Lymphedema</a></li>
-                            <li><a href="#">View All</a></li>
-                        </ul>
-                    </li>
+                   
                     <li>
                         <a href="#">Find All Providers</a>
                         <ul class="dropdown">
-                            <li><a href="#" onclick="searchDoctors('', '', '', 'Location', '', '')">By Location</a></li>
-                            <li><a href="#" onclick="searchDoctors('', '', '', 'Newly Added Providers', '', '')">Newly Added Providers</a></li>
+                            <li><a href="location.html">By Location</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" onclick="listYourPractice()">List Your Practice</a></li>
+                    
                 </ul>
             </nav>
-            
+            </div>
         </div>
     </header>
     <main class="main-content">
@@ -69,36 +50,15 @@
                 <div class="search-bar">
                     <input type="text" id="search-query" placeholder="Search doctors, conditions, or procedures">
                     <input type="text" id="location" placeholder="Enter your location">
-                    <button onclick="searchDoctors()">Search</button>
+                    <button id="search-button">Search</button>
                 </div>
-                <div class="additional-filters">
-                    <select id="specialty">
-                        <option value="">Select Specialty</option>
-                        <option value="cardiology">Cardiology</option>
-                        <option value="dermatology">Dermatology</option>
-                        <option value="neurology">Neurology</option>
-                        <!-- Add more specialties as needed -->
-                    </select>
-                    <select id="rating">
-                        <option value="">Select Rating</option>
-                        <option value="4">4+ stars</option>
-                        <option value="3">3+ stars</option>
-                        <option value="2">2+ stars</option>
-                        <option value="1">1+ star</option>
-                    </select>
-                    <select id="distance">
-                        <option value="">Select Distance</option>
-                        <option value="5">Within 5 kms</option>
-                        <option value="10">Within 10 kms</option>
-                        <option value="20">Within 20 kms</option>
-                    </select>
-                </div>
+                
                 <div class="results" id="results">
                     <!-- Results will be displayed here -->
                 </div>
             </div>
     </main>
-    <script src="scripts.js"></script>
+    <script src="homepage.js"></script>
     <footer>
         <div class="footer-container">
           <div class="footer-section about">
@@ -121,9 +81,9 @@
           </div>
           <div class="footer-section follow">
             <h3>Follow Us</h3>
-            <a href="#"><img src="path/to/facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="path/to/twitter-icon.png" alt="Twitter"></a>
-            <a href="#"><img src="path/to/linkedin-icon.png" alt="LinkedIn"></a>
+            <a href="#"><img src="/images/facebookicon.png" alt="Facebook"></a>
+            <a href="#"><img src="/images/twittericon.png" alt="Twitter"></a>
+            <a href="#"><img src="/images/instagramicon.png" alt="Instagram"></a>
           </div>
         </div>
         <div class="footer-bottom">

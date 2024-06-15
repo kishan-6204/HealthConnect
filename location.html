@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providers by Location</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #444;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .doctor-info {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            transition: background-color 0.3s ease;
+        }
+
+        .doctor-info:hover {
+            background-color: #f9f9f9;
+        }
+
+        .doctor-info strong {
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .doctor-info p {
+            margin: 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Providers by Location</h1>
+    <div id="doctors-list">
+        <!-- Doctor information will be inserted here by JavaScript -->
+    </div>
+    <!-- Include the script that processes and displays the doctor data -->
+    <script>
+        const doctorsData = [
+            {
+                "name": "Dr. Kallepalli Divya",
+                "specialty": "Ear-Nose-Throat (ENT) Specialist",
+                "experience": "4 years",
+                "location": "Medchal, Hyderabad",
+                "clinic": "Sankhya Hospitals",
+                "fee": 300,
+                "rating": "100%",
+                "patientStories": 1
+            },
+            {
+                "name": "Dr. Maitrayee Chennu",
+                "specialty": "Gynecologist/Obstetrician",
+                "experience": "7 years",
+                "location": "Medchal, Hyderabad",
+                "clinic": "Sankhya Hospitals",
+                "fee": 300
+            },
+            {
+            "name": "Dr. Naveen Reddy V",
+            "specialty": "Neurosurgeon",
+            "experience": "15 years",
+            "location": "Sanath Nagar, Hyderabad",
+            "clinic": "Renova Neelima Hospitals (formerly Neelima Hospitals) + 2 more",
+            "fee": 500
+        },
+        {
+            "name": "Dr. Srinivas Deshmukh",
+            "specialty": "Neurologist",
+            "experience": "22 years",
+            "location": "Somajiguda, Hyderabad",
+            "clinic": "The Deccan Hospital + 1 more",
+            "fee": 700,
+            "rating": "75%",
+            "patientStories": "4 Patient Stories"
+        },
+        {
+            "name": "Dr. Deepak Kumar Maharana",
+            "specialty": "Vascular Surgeon",
+            "experience": "24 years",
+            "location": "Srinagar Colony, Hyderabad",
+            "clinic": "Green Med Hospital",
+            "fee": 600,
+            "rating": "60%",
+            "patientStories": "4 Patient Stories"
+        },
+        {
+            "name": "Dr. Ramesh Vasudevan",
+            "specialty": "Laparoscopic Surgeon",
+            "experience": "26 years",
+            "location": "Srinagar Colony, Hyderabad",
+            "clinic": "Green Med Hospital + 1 more",
+            "fee": 700,
+            "rating": "95%",
+            "patientStories": "16 Patient Stories"
+        },
+        {
+            "name": "Dr. Ajay Kumar Tiwari",
+            "specialty": "Orthopedist",
+            "experience": "26 years",
+            "location": "Somajiguda, Hyderabad",
+            "clinic": "The Deccan Hospital",
+            "fee": 700,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. G V Somayajulu",
+            "specialty": "General Surgeon",
+            "experience": "40 years",
+            "location": "Sanath Nagar, Hyderabad",
+            "clinic": "Renova Neelima Hospitals (formerly Neelima Hospitals)",
+            "fee": 1000,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. Sanjeev Singh Yadav",
+            "specialty": "General Surgeon",
+            "experience": "36 years",
+            "location": "Banjara Hills, Hyderabad",
+            "clinic": "MAVEN MEDICAL CENTER",
+            "fee": 750,
+            "rating": "93%",
+            "patientStories": "66 Patient Stories"
+        },
+        {
+            "name": "Dr. Rehan Sabir Momin",
+            "specialty": "Gastroenterology Surgeon",
+            "experience": "21 years",
+            "location": "Banjara Hills, Hyderabad",
+            "clinic": "MAVEN MEDICAL CENTER",
+            "fee": 750,
+            "rating": "98%",
+            "patientStories": "4 Patient Stories"
+        },
+        {
+            "name": "Dr. Arun Kumar Nadimpalli",
+            "specialty": "Orthopedist",
+            "experience": "25 years",
+            "location": "Somajiguda, Hyderabad",
+            "clinic": "The Deccan Hospital + 1 more",
+            "fee": 700,
+            "rating": "95%",
+            "patientStories": "26 Patient Stories"
+        },
+        {
+            "name": "Dr. Chandana Lakkireddi",
+            "specialty": "Gynecologist/Obstetrician",
+            "experience": "23 years",
+            "location": "Banjara Hills, Hyderabad",
+            "clinic": "Esha Ivf Fertility Centre + 1 more",
+            "fee": 700,
+            "rating": "98%",
+            "patientStories": "95 Patient Stories"
+        },
+        {
+            "name": "Dr. Naveen Reddy V",
+            "specialty": "Neurosurgeon",
+            "experience": "15 years",
+            "location": "Sanath Nagar, Hyderabad",
+            "clinic": "Renova Neelima Hospitals (formerly Neelima Hospitals) + 2 more",
+            "fee": 500
+        },
+        {
+            "name": "Dr. Srinivas Deshmukh",
+            "specialty": "Neurologist",
+            "experience": "22 years",
+            "location": "Somajiguda, Hyderabad",
+            "clinic": "The Deccan Hospital + 1 more",
+            "fee": 700,
+            "rating": "75%",
+            "patientStories": "4 Patient Stories"
+        },
+        {
+            "name": "Dr. Deepak Kumar Maharana",
+            "specialty": "Vascular Surgeon",
+            "experience": "24 years",
+            "location": "Srinagar Colony, Hyderabad",
+            "clinic": "Green Med Hospital",
+            "fee": 600,
+            "rating": "60%",
+            "patientStories": "4 Patient Stories"
+        },
+        {
+            "name": "Dr. Ramesh Vasudevan",
+            "specialty": "Laparoscopic Surgeon",
+            "experience": "26 years",
+            "location": "Srinagar Colony, Hyderabad",
+            "clinic": "Green Med Hospital + 1 more",
+            "fee": 700,
+            "rating": "95%",
+            "patientStories": "16 Patient Stories"
+        },
+        {
+            "name": "Dr. Ajay Kumar Tiwari",
+            "specialty": "Orthopedist",
+            "experience": "26 years",
+            "location": "Somajiguda, Hyderabad",
+            "clinic": "The Deccan Hospital",
+            "fee": 700,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. Kallepalli Divya",
+            "specialty": "Ear-Nose-Throat (ENT) Specialist",
+            "experience": "4 years",
+            "location": "Medchal, Hyderabad",
+            "clinic": "Sankhya Hospitals",
+            "fee": 300,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. Maitrayee Chennu",
+            "specialty": "Gynecologist/Obstetrician",
+            "experience": "7 years",
+            "location": "Medchal, Hyderabad",
+            "clinic": "Sankhya Hospitals",
+            "fee": 300
+        },
+        {
+            "name": "Dr. B Naresh Goud",
+            "specialty": "Pediatrician",
+            "experience": "11 years",
+            "location": "Medchal, Hyderabad",
+            "clinic": "Aadi Children's Clinic",
+            "fee": 300
+        },
+        {
+            "name": "Dr. Suchithra Lakshmi Gadepalli",
+            "specialty": "General Surgeon",
+            "experience": "11 years",
+            "location": "Medchal, Hyderabad",
+            "clinic": "Sankhya Hospitals",
+            "fee": 300
+        },
+        {
+            "name": "Dr. Karanam Madhuri",
+            "specialty": "General Physician",
+            "experience": "5 years",
+            "location": "Medchal, Hyderabad",
+            "clinic": "Sankhya Hospitals",
+            "fee": 300
+        },
+        {
+            "name": "Dr. B Murali Mohan",
+            "specialty": "Pulmonologist",
+            "experience": "19 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "Renova Hospitals + 1 more",
+            "fee": 500,
+            "rating": "85%",
+            "patientStories": "3 Patient Stories"
+        },
+        {
+            "name": "Dr. Poondru Mamatha",
+            "specialty": "Gynecologist/Obstetrician",
+            "experience": "12 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "Renova Hospitals",
+            "fee": 500
+        },
+        {
+            "name": "Dr. Deepti V",
+            "specialty": "Pediatrician",
+            "experience": "14 years",
+            "location": "Medchal, Hyderabad",
+            "clinic": "Sankhya Hospitals + 1 more",
+            "fee": 300,
+            "rating": "50%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. K. Vinay Charan",
+            "specialty": "Dentist",
+            "experience": "23 years",
+            "location": "Kompally, Hyderabad",
+            "clinic": "Dent Dept MEDICITI HOSPITAL + 1 more",
+            "fee": 100,
+            "rating": "70%",
+            "patientStories": "7 Patient Stories"
+        },
+        {
+            "name": "Dr. Nakka Srikanth",
+            "specialty": "General Physician",
+            "experience": "12 years",
+            "location": "Kompally, Hyderabad",
+            "clinic": "Advitha Children and Multispeciality Hospital",
+            "fee": 300
+        },
+        {
+            "name": "Dr. A. Saibaba Goud",
+            "specialty": "Ophthalmologist",
+            "experience": "51 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "SAI JYOTHI EYE HOSPITAL + 2 more",
+            "fee": 400,
+            "rating": "91%",
+            "patientStories": "34 Patient Stories"
+        },
+        {
+            "name": "Dr. Advaith Sai Alampur",
+            "specialty": "Ophthalmologist",
+            "experience": "15 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "SAI JYOTHI EYE HOSPITAL + 1 more",
+            "fee": 500,
+            "rating": "96%",
+            "patientStories": "39 Patient Stories"
+        },
+        {
+            "name": "Dr. Krishna Mohan K",
+            "specialty": "General Surgeon",
+            "experience": "18 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "Renova Hospitals + 2 more",
+            "fee": 500,
+            "rating": "100%"
+        },
+        {
+            "name": "Dr. S Srinath",
+            "specialty": "Neurosurgeon",
+            "experience": "23 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "Renova Hospitals",
+            "fee": 500
+        },
+        {
+            "name": "Dr. S Venkata Chaitanya",
+            "specialty": "Urologist",
+            "experience": "16 years",
+            "location": "Secunderabad, Hyderabad",
+            "clinic": "Renova Hospitals",
+            "fee": 600,
+            "rating": "100%"
+        },
+        {
+            "name": "Dr. P Naveen Kumar",
+            "specialty": "Urologist",
+            "experience": "16 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital + 3 more",
+            "fee": 650,
+            "rating": "91%",
+            "patientStories": "4 Patient Stories"
+        },
+        {
+            "name": "Dr. M Ashwin Kumar",
+            "specialty": "Orthopedist",
+            "experience": "25 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital",
+            "fee": 650,
+            "rating": "90%",
+            "patientStories": "5 Patient Stories"
+        },
+        {
+            "name": "Dr. Rajendra Prasad Bhupathi",
+            "specialty": "General Surgeon",
+            "experience": "24 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital + 1 more",
+            "fee": 800,
+            "rating": "63%",
+            "patientStories": "5 Patient Stories"
+        },
+        {
+            "name": "Dr. Srinivas Reddy",
+            "specialty": "Cardiologist",
+            "experience": "33 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital",
+            "fee": 650,
+            "rating": "100%"
+        },
+        {
+            "name": "Dr. N. Kalyan Chakravarthy",
+            "specialty": "Hair Transplant Surgeon",
+            "experience": "22 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital + 1 more",
+            "fee": 650,
+            "rating": "100%",
+            "patientStories": "9 Patient Stories"
+        },
+        {
+            "name": "Dr. Venu",
+            "specialty": "Urologist",
+            "experience": "27 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital",
+            "fee": 650,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. B Kalyan",
+            "specialty": "Neurosurgeon",
+            "experience": "14 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital + 1 more",
+            "fee": 650,
+            "rating": "100%",
+            "patientStories": "5 Patient Stories"
+        },
+        {
+            "name": "Dr. J. Gauri Shankar",
+            "specialty": "Neurosurgeon",
+            "experience": "25 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital + 1 more",
+            "fee": 650,
+            "rating": "100%"
+        },
+        {
+            "name": "Dr. V V Satyanarayana",
+            "specialty": "Orthopedist",
+            "experience": "16 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital",
+            "fee": 650,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. Y.K. Siva Kumar Reddy",
+            "specialty": "General Surgeon",
+            "experience": "16 years",
+            "location": "LB Nagar, Hyderabad",
+            "clinic": "Gleneagles Aware Hospital",
+            "fee": 650,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. Krishna Chaitanya",
+            "specialty": "General Surgeon",
+            "experience": "18 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "My Health Hospital + 1 more",
+            "fee": 600,
+            "rating": "100%",
+            "patientStories": "6 Patient Stories"
+        },
+        {
+            "name": "Dr. Puneeth Joopalli",
+            "specialty": "Vascular Surgeon",
+            "experience": "18 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "My Health Hospital + 2 more",
+            "fee": 800,
+            "rating": "85%",
+            "patientStories": "7 Patient Stories"
+        },
+        {
+            "name": "Dr. T. Pramod Kumar Rao",
+            "specialty": "Cardiologist",
+            "experience": "22 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "OMNI Hospitals + 2 more",
+            "fee": 550,
+            "rating": "100%",
+            "patientStories": "13 Patient Stories"
+        },
+        {
+            "name": "Dr. Tagore Mohan Grandhi",
+            "specialty": "Laparoscopic Surgeon",
+            "experience": "32 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "OMNI Hospitals + 1 more",
+            "fee": 550,
+            "rating": "100%",
+            "patientStories": "2 Patient Stories"
+        },
+        {
+            "name": "Dr. C Raveendra Reddy",
+            "specialty": "Urologist",
+            "experience": "22 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "OMNI Hospitals + 4 more",
+            "fee": 500,
+            "rating": "93%",
+            "patientStories": "41 Patient Stories"
+        },
+        {
+            "name": "Dr. Sridhar Reddy Kareddy",
+            "specialty": "General Surgeon",
+            "experience": "17 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "Treatment Range Hospital + 1 more",
+            "fee": 1000,
+            "rating": "100%",
+            "patientStories": "14 Patient Stories"
+        },
+        {
+            "name": "Dr. Jayanth Reddy Venteri",
+            "specialty": "Urologist",
+            "experience": "17 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "My Health Hospital",
+            "fee": 600,
+            "rating": "75%",
+            "patientStories": "3 Patient Stories"
+        },
+        {
+            "name": "Dr. Sharan Basappa",
+            "specialty": "Neurosurgeon",
+            "experience": "31 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "OMNI Hospitals",
+            "fee": 500,
+            "rating": "100%",
+            "patientStories": "2 Patient Stories"
+        },
+        {
+            "name": "Dr. Sandeep Manthena",
+            "specialty": "Orthopedist",
+            "experience": "20 years",
+            "location": "Kukatpally, Hyderabad",
+            "clinic": "My Health Hospital",
+            "fee": 600
+        },
+        {
+            "name": "Dr. J. Rajeshwari",
+            "specialty": "Gynecologist/Obstetrician",
+            "experience": "39 years",
+            "location": "KPHB, Hyderabad",
+            "clinic": "Padmaja Hospital",
+            "fee": 400,
+            "rating": "100%",
+            "patientStories": "1 Patient Story"
+        },
+        {
+            "name": "Dr. Siddartha Reddy",
+            "specialty": "Neurologist",
+            "experience": "16 years",
+            "location": "Madinaguda, Hyderabad",
+            "clinic": "Siddarth Neuro Centre",
+            "consultation_fee": "₹800",
+            "rating": "94%",
+            "patient_stories": "558"
+        },
+        {
+            "name": "Dr. Madhu Thumu",
+            "specialty": "Orthopedist",
+            "experience": "18 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Srikara Hospitals",
+            "consultation_fee": "₹700",
+            "rating": "92%",
+            "patient_stories": "72"
+        },
+        {
+            "name": "Dr. Murali Yelchuri",
+            "specialty": "General Physician",
+            "experience": "18 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Srikara Hospitals",
+            "consultation_fee": "₹700",
+            "rating": "88%",
+            "patient_stories": "24"
+        },
+        {
+            "name": "Dr. C Raveendra Reddy",
+            "specialty": "Urologist",
+            "experience": "22 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Srikara Hospitals + 4 more",
+            "consultation_fee": "₹600",
+            "rating": "93%",
+            "patient_stories": "41"
+        },
+        {
+            "name": "Dr. K.Naga Murali",
+            "specialty": "Cardiologist",
+            "experience": "24 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Srikara Hospitals + 1 more",
+            "consultation_fee": "₹750",
+            "rating": "93%",
+            "patient_stories": "28"
+        },
+        {
+            "name": "Dr. Venkata Harin Reddy M",
+            "specialty": "Neurologist",
+            "experience": "14 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Srikara Hospitals",
+            "consultation_fee": "₹600",
+            "rating": "96%",
+            "patient_stories": "21"
+        },
+        {
+            "name": "Dr. Akhila Sunder",
+            "specialty": "Orthopedist",
+            "experience": "13 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Srikara Hospitals + 1 more",
+            "consultation_fee": "₹700",
+            "rating": "100%",
+            "patient_stories": "12"
+        },
+        {
+            "name": "Dr. Sathish Kumar S",
+            "specialty": "Ear-Nose-Throat (ENT) Specialist",
+            "experience": "18 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Korum ENT Superspeciality Centre",
+            "consultation_fee": "₹500",
+            "rating": "92%",
+            "patient_stories": "150"
+        },
+        {
+            "name": "Dr. Praveen Kumar",
+            "specialty": "Dentist",
+            "experience": "13 years",
+            "location": "Miyapur, Hyderabad",
+            "clinic": "Jo Dent Multispeciality Dental And Implant Centre + 1 more",
+            "consultation_fee": "₹300",
+            "rating": "98%",
+            "patient_stories": "138"
+        },
+        {
+            "name": "Dr. P. Vamshi Krishna",
+            "specialty": "Pediatrician",
+            "experience": "10 years",
+            "location": "Chandanagar, Hyderabad",
+            "clinic": "My Family Clinic",
+            "consultation_fee": "₹500",
+            "rating": "95%",
+            "patient_stories": "200"
+        },
+            // ... other doctors data
+            {
+                "name": "Dr. Chandana Lakkireddi",
+                "specialty": "Gynecologist/Obstetrician",
+                "experience": "23 years",
+                "location": "Banjara Hills, Hyderabad",
+                "clinic": "Esha Ivf Fertility Centre + 1 more",
+                "fee": 700,
+                "rating": "98%",
+                "patientStories": "95 Patient Stories"
+            }
+        ];
+
+        function displayDoctorsByLocation() {
+            const container = document.getElementById('doctors-list');
+            container.innerHTML = ''; // Clear the container first
+            doctorsData.forEach(doctor => {
+                const doctorInfo = document.createElement('div');
+                doctorInfo.className = 'doctor-info';
+                doctorInfo.innerHTML = `<strong>${doctor.name}</strong><br>${doctor.location}`;
+                container.appendChild(doctorInfo);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', displayDoctorsByLocation);
+    </script>
+</body>
+</html>
