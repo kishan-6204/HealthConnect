@@ -36,6 +36,6 @@ Register or log in to access full features.
 Use the search bar and filters to find healthcare providers based on your needs.                                                
 Review provider profiles, ratings, and feedback from other users to make informed healthcare choices.                            
 
-
+For questions, feedback, or further inquiries, reach out at kishanshukla631@gmail.com
 
 project drive-link:https://drive.google.com/drive/folders/19PxTzYHkVQKiB1GlD9nePvvXj2DqzHPV
