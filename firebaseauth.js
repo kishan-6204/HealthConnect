@@ -13,12 +13,12 @@ import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAKYY2XuJjQ4AhJKobIl_RnvuSmpr2IXAo",
-    authDomain: "login-form-76fa2.firebaseapp.com",
-    projectId: "login-form-76fa2",
-    storageBucket: "login-form-76fa2.appspot.com",
-    messagingSenderId: "906743815132",
-    appId: "1:906743815132:web:650241e4133c28043c4d19"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID",
 };
 
 // Initialize Firebase
