@@ -90,6 +90,7 @@ button{
     color:white;
     cursor:pointer;
     transition:0.9s;
+    margin-top: 5px; /* Added for spacing */
 }
 button:hover{
     background:#07001f;
@@ -124,17 +125,20 @@ button:hover{
     margin-top:0.9rem;
     font-weight:bold;
 }
- #signUpButton, #signInButton{
+#signUpButton, #signInButton{
     color:rgb(125,125,235);
-    border:none;
+    border: 1px solid rgb(125,125,235); /* Added a box around buttons */
+    border-radius: 4px; /* Added rounded corners */
     background-color:transparent;
     font-size:1rem;
     font-weight:bold;
+    padding: 5px 10px; /* Added padding for better button size */
 }
 #signUpButton:hover, #signInButton:hover {
     text-decoration:underline;
     color:blue;
-} 
+    background-color: rgba(125,125,235,0.1); /* Light background on hover */
+}
 .messageDiv{
     background-color:hsl(327,90%,28%);
     color:white;
@@ -145,4 +149,11 @@ button:hover{
     opacity:0;
     animation:fadeOut 7s forwards;
 
+}
+.google-btn{
+    background-color: #db4437;
+    margin-top: 10px;/*Added google button styling*/
+}
+.google-btn i{
+    margin-right: 5px;
 }
